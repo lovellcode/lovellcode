@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavey London — Handmade Fine Jewellery in Recycled Gold &amp; Eco-Silver</title>
+<meta name="description" content="Ethical fine jewellery, handmade to order in London. Recycled 9ct gold, eco-silver and lab-grown diamonds. Rings, necklaces, earrings, bracelets and personalised pieces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b2622;
+    --ink-soft:#6b6157;
+    --cream:#faf7f2;
+    --cream-deep:#f2ece3;
+    --gold:#a8874f;
+    --gold-soft:#c9b183;
+    --line:#e5dcce;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Jost', 'Helvetica Neue', Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    font-weight:300;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,247,242,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{
+    font-family:var(--serif);
+    font-size:1.35rem;letter-spacing:.35em;font-weight:500;
+    text-transform:uppercase;
+  }
+  .brand span{color:var(--gold)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase}
+  .nav-links a:not(.btn):hover{color:var(--gold)}
+  .btn{
+    display:inline-block;
+    background:var(--ink);color:var(--cream);
+    padding:12px 30px;
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    transition:background .25s ease;
+  }
+  .btn:hover{background:var(--gold)}
+  .btn-outline{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--cream)}
+  .nav .btn{padding:9px 22px}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    text-align:center;
+    padding:96px 24px 84px;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, var(--cream-deep) 0%, transparent 70%),
+      var(--cream);
+  }
+  .hero .eyebrow{
+    font-size:.75rem;letter-spacing:.35em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    line-height:1.12;
+    max-width:15ch;margin:0 auto 24px;
+  }
+  .hero p{
+    max-width:52ch;margin:0 auto 36px;
+    color:var(--ink-soft);font-size:1.05rem;
+  }
+  .hero .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- Trust bar ---------- */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream)}
+  .trust ul{
+    list-style:none;display:flex;justify-content:center;flex-wrap:wrap;
+    gap:12px 48px;padding:18px 24px;
+    font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .trust li::before{content:"◆";color:var(--gold-soft);font-size:.55rem;margin-right:10px;vertical-align:2px}
+
+  /* ---------- Sections ---------- */
+  section{padding:88px 0}
+  .sec-head{text-align:center;margin-bottom:56px}
+  .sec-head .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  .sec-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,4vw,2.6rem)}
+
+  /* Collections grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+  .card{
+    background:#fff;border:1px solid var(--line);
+    text-align:center;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(43,38,34,.08)}
+  .card .art{
+    aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--cream-deep),#fff);
+  }
+  /*
+    IMAGE SWAP: replace each inline <svg> below with a real product photo, e.g.
+    <img src="images/rings.jpg" alt="Solid gold ring" loading="lazy">
+    Square photos on a plain background work best.
+  */
+  .card .art svg{width:44%;height:auto;stroke:var(--gold);fill:none;stroke-width:1.4;opacity:.85}
+  .card .card-body{padding:22px 18px 28px}
+  .card h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin-bottom:6px}
+  .card p{font-size:.85rem;color:var(--ink-soft);margin-bottom:14px}
+  .card .link{
+    font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+    border-bottom:1px solid var(--gold-soft);padding-bottom:3px;
+  }
+  .card .link:hover{color:var(--ink);border-color:var(--ink)}
+
+  /* Craft / values */
+  .craft{background:var(--cream-deep)}
+  .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px;text-align:center}
+  .values .v-num{
+    font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--gold);
+    margin-bottom:12px;
+  }
+  .values h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;margin-bottom:10px}
+  .values p{font-size:.92rem;color:var(--ink-soft);max-width:34ch;margin:0 auto}
+
+  /* About */
+  .about-inner{max-width:640px;margin:0 auto;text-align:center}
+  .about-inner .drop{
+    font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:400;
+    font-style:italic;line-height:1.5;margin-bottom:24px;
+  }
+  .about-inner p{color:var(--ink-soft);margin-bottom:28px}
+  .signature{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--gold)}
+
+  /* Final CTA */
+  .closing{background:var(--ink);color:var(--cream);text-align:center}
+  .closing h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.5vw,2.8rem);max-width:20ch;margin:0 auto 18px}
+  .closing p{color:#b9ad9e;max-width:46ch;margin:0 auto 36px}
+  .closing .btn{background:var(--cream);color:var(--ink)}
+  .closing .btn:hover{background:var(--gold);color:var(--cream)}
+
+  /* Footer */
+  footer{padding:44px 0;border-top:1px solid var(--line)}
+  .foot{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--ink-soft)}
+  .foot .social{display:flex;gap:24px;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem}
+  .foot .social a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Lavey<span>&nbsp;London</span></a>
+    <nav class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#craft">Our Craft</a>
+      <a href="#about">About</a>
+      <a class="btn" href="https://laveylondon.co.uk/collections/all">Shop</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Hero: one message, one action -->
+  <section class="hero">
+    <p class="eyebrow">Handmade to order in London</p>
+    <h1>Fine jewellery, made only for you.</h1>
+    <p>Every Lavey London piece is handcrafted to order in recycled 9ct gold and eco-silver, set with ethically sourced, lab-grown diamonds. No mass production — just one maker, one bench, one piece at a time.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://laveylondon.co.uk/collections/all">Shop the Collection</a>
+      <a class="btn btn-outline" href="https://laveylondon.co.uk/collections/personalised-pieces">Personalise a Piece</a>
+    </div>
+  </section>
+
+  <div class="trust">
+    <ul>
+      <li>Recycled precious metals</li>
+      <li>Lab-grown diamonds</li>
+      <li>Made to order</li>
+      <li>Ships from London</li>
+    </ul>
+  </div>
+
+  <!-- Collections -->
+  <section id="collections">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">The Collections</p>
+        <h2>Find your piece</h2>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <a href="https://laveylondon.co.uk/collections/rings" aria-label="Shop rings">
+            <div class="art">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="58" r="26"/>
+                <path d="M42 30 L50 18 L58 30 L50 36 Z"/>
+                <path d="M42 30 H58"/>
+              </svg>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3>Rings</h3>
+            <p>Solid recycled gold, from everyday bands to engagement rings.</p>
+            <a class="link" href="https://laveylondon.co.uk/collections/rings">Shop Rings</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="https://laveylondon.co.uk/collections/chains" aria-label="Shop necklaces and chains">
+            <div class="art">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M20 24 C30 58 42 66 50 70 C58 66 70 58 80 24"/>
+                <circle cx="50" cy="76" r="5"/>
+                <path d="M50 70 V71"/>
+              </svg>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3>Necklaces &amp; Chains</h3>
+            <p>Delicate, layerable chains and pendants for the décolletage.</p>
+            <a class="link" href="https://laveylondon.co.uk/collections/chains">Shop Necklaces</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="https://laveylondon.co.uk/collections/silver-earrings" aria-label="Shop earrings">
+            <div class="art">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M35 22 C35 34 35 40 35 46"/>
+                <circle cx="35" cy="55" r="9"/>
+                <path d="M65 22 C65 34 65 40 65 46"/>
+                <circle cx="65" cy="55" r="9"/>
+              </svg>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3>Earrings</h3>
+            <p>Studs and drops in solid gold, with lab-grown diamonds.</p>
+            <a class="link" href="https://laveylondon.co.uk/collections/silver-earrings">Shop Earrings</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="https://laveylondon.co.uk/collections/bracelets" aria-label="Shop bracelets">
+            <div class="art">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <ellipse cx="50" cy="50" rx="30" ry="24"/>
+                <circle cx="50" cy="74" r="4"/>
+              </svg>
+            </div>
+          </a>
+          <div class="card-body">
+            <h3>Bracelets</h3>
+            <p>Custom made to order in recycled solid gold and silver.</p>
+            <a class="link" href="https://laveylondon.co.uk/collections/bracelets">Shop Bracelets</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Craft -->
+  <section id="craft" class="craft">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our Craft</p>
+        <h2>Why it's worth the wait</h2>
+      </div>
+      <div class="values">
+        <div>
+          <p class="v-num">i.</p>
+          <h3>Made to order</h3>
+          <p>Nothing sits in a warehouse. Your piece is made by hand when you order it, using traditional benchwork techniques.</p>
+        </div>
+        <div>
+          <p class="v-num">ii.</p>
+          <h3>Recycled metals</h3>
+          <p>Recycled 9ct gold and eco-silver — the same lasting quality, without new mining.</p>
+        </div>
+        <div>
+          <p class="v-num">iii.</p>
+          <h3>Lab-grown diamonds</h3>
+          <p>Chemically identical to mined diamonds, ethically sourced and fully traceable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap about-inner">
+      <div class="sec-head" style="margin-bottom:32px">
+        <p class="eyebrow">The Maker</p>
+      </div>
+      <p class="drop">"Lavey London is a tribute to my British and Irish ancestry — every piece carries a little of that story, and a little of yours."</p>
+      <p>Founded by Lauren, Lavey London is an independent jewellery studio where every order is tailored to capture your unique story — handcrafted with a deep commitment to sustainable, ethical making.</p>
+      <p class="signature">— Lauren, Founder</p>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="closing">
+    <div class="wrap">
+      <h2>A piece made only for you begins here.</h2>
+      <p>Browse the full collection, or have a piece engraved and personalised — made to order and shipped from London.</p>
+      <a class="btn" href="https://laveylondon.co.uk/collections/all">Shop Lavey London</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 Lavey London · Handmade fine jewellery, London</p>
+    <nav class="social">
+      <a href="https://www.instagram.com/laveylondon/" rel="noopener">Instagram</a>
+      <a href="https://uk.pinterest.com/laveylondon/" rel="noopener">Pinterest</a>
+      <a href="https://www.etsy.com/uk/shop/LaveyLondon" rel="noopener">Etsy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
