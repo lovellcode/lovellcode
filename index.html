@@ -249,6 +249,24 @@ footer{background:var(--ink);color:#9AA8A0;padding:2.2rem 0;font-size:.88rem}
 footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:var(--chalk-on-dark)}
 
+/* ---------- photos ---------- */
+.photo{margin:0;position:relative;overflow:hidden;border-radius:10px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05)}
+.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:2.4rem 1.2rem .9rem;background:linear-gradient(transparent,rgba(11,20,16,.82));color:var(--chalk-on-dark);font-size:.85rem}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:3.5rem;align-items:center}
+.hero-grid.solo{grid-template-columns:1fr}
+.hero-photo img{aspect-ratio:4/5;object-position:top}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}.hero-photo img{aspect-ratio:1/1}}
+.story-photo{margin-top:2.2rem;max-width:34rem}
+.story-photo img{aspect-ratio:1/1;object-position:top}
+.strip{border-radius:0}
+.strip img{aspect-ratio:21/9;min-height:280px}
+@media (max-width:700px){.strip img{aspect-ratio:16/10}}
+.faq-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:start;margin-top:1.6rem}
+.faq-grid.solo{grid-template-columns:1fr}
+.faq-photo img{aspect-ratio:4/3}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}.faq-photo{display:none}}
+
 /* ---------- reveal (only when JS is available) ---------- */
 .js .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
 .js .reveal.in{opacity:1;transform:none}
@@ -274,7 +292,8 @@ footer a{color:var(--chalk-on-dark)}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
       <p class="eyebrow">MSK Physiotherapy · Bedford</p>
       <h1>Physio from someone who's been on <em>both sides</em> of an injury.</h1>
       <p class="lede">I'm Max Lovell — a first-class BSc&nbsp;(Hons) physiotherapist, a personal trainer of ten years, and a professional boxer. I've spent my career fixing bodies, including my own. Now let me help you rebuild yours.</p>
@@ -283,6 +302,10 @@ footer a{color:var(--chalk-on-dark)}
         <a class="btn btn-ghost" href="#pricing">See session prices</a>
       </div>
       <p class="hero-note">HCPC registered · Chartered Society of Physiotherapy member · Meadow Lane, Bedford</p>
+      </div>
+      <figure class="photo hero-photo">
+        <img src="hero.jpg" alt="Max Lovell standing in the corner of a boxing ring" data-optional>
+      </figure>
     </div>
   </section>
 
@@ -305,6 +328,10 @@ footer a{color:var(--chalk-on-dark)}
         <p>Most physiotherapists learn about the body in a classroom. <strong>I learned it the hard way first</strong> — through ten years of training clients in Bedford and a professional boxing career where getting injured, rehabbing, and coming back stronger was simply part of the job.</p>
         <p>I took a sports science degree into a decade of one-to-one coaching at Lovell Personal Training: office workers with wrecked backs, runners with stubborn knees, people recovering from surgery, and fighters preparing for the hardest nights of their lives.</p>
         <p>Physiotherapy wasn't a career change. <strong>It was the obvious next step</strong> — putting formal clinical training on top of ten years of real-world experience. I graduated from the University of Northampton with first-class honours, and I treat every patient with the same standard I trained athletes to: no guesswork, no endless appointments, a clear plan and a finish line.</p>
+        <figure class="photo story-photo reveal">
+          <img src="ring.jpg" alt="Max Lovell in the ring on fight night, glove raised" loading="lazy" data-optional>
+          <figcaption>Fight night. Ten years of learning what injury — and recovery — feel like from the inside.</figcaption>
+        </figure>
       </div>
       <ol class="timeline reveal" aria-label="Career timeline">
         <li>
@@ -370,6 +397,11 @@ footer a{color:var(--chalk-on-dark)}
       <p class="promise reveal"><strong>My promise:</strong> I will never book you in for sessions you don't need. The goal is to get you back to your life — not to keep you on my books.</p>
     </div>
   </section>
+
+  <figure class="photo strip">
+    <img src="gym.jpg" alt="Max loading a barbell in his private gym on Meadow Lane" loading="lazy" data-optional>
+    <figcaption>The private facility on Meadow Lane, Bedford — one-to-one, no crowds.</figcaption>
+  </figure>
 
   <!-- PRICING -->
   <section id="pricing">
@@ -462,7 +494,8 @@ footer a{color:var(--chalk-on-dark)}
     <div class="wrap">
       <p class="eyebrow">FAQ</p>
       <h2>Good questions, straight answers.</h2>
-      <div class="faq" style="margin-top:1.6rem">
+      <div class="faq-grid">
+      <div class="faq">
         <details>
           <summary>Do I need a GP referral?</summary>
           <p>No. You can book directly with me — most people do. If anything in your assessment needs a GP or a scan, I'll tell you and write to them for you.</p>
@@ -487,6 +520,11 @@ footer a{color:var(--chalk-on-dark)}
           <summary>What if physio isn't the right thing for me?</summary>
           <p>Then I'll say so, at the free call, and point you towards whoever is — a GP, a consultant, or a different specialist. I'd rather lose a booking than waste your time and money.</p>
         </details>
+      </div>
+      <figure class="photo faq-photo reveal">
+        <img src="seated.jpg" alt="Max Lovell sitting ringside" loading="lazy" data-optional>
+        <figcaption>Straight answers, in person.</figcaption>
+      </figure>
       </div>
     </div>
   </section>
@@ -525,6 +563,17 @@ footer a{color:var(--chalk-on-dark)}
 
 <script>
 (function(){
+  document.querySelectorAll('img[data-optional]').forEach(function(img){
+    function drop(){
+      var f = img.closest('figure');
+      var g = f && f.parentElement;
+      if (f) f.remove();
+      if (g && (g.classList.contains('hero-grid') || g.classList.contains('faq-grid'))) g.classList.add('solo');
+    }
+    if (img.complete && img.naturalWidth === 0) drop();
+    else img.addEventListener('error', drop);
+  });
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
     return;
